@@ -1,0 +1,480 @@
+
+// ***********  Rc Surrender  ***********//
+
+
+        Call<VhRcSurrenderResponse> call = SecondaryActivity.vehicleHistoryApiInterface.getRcSurrenderVehicleHistoryDetails(registrationNumber.trim().toUpperCase() );
+        call.enqueue(new Callback<VhRcSurrenderResponse>() {
+            @Override
+            public void onResponse(Call<VhRcSurrenderResponse> call, Response<VhRcSurrenderResponse> response) {
+
+
+                if(response.isSuccessful()) {
+                    try {
+                        if (response.body().getQueryResponse().getError() == false) {
+
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+
+
+                            prefConfig.displayToast(response.body().getQueryResponse().getMessage());
+
+
+                            initiateFragmentTransaction("details", response.body());
+
+
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                        else {
+
+                            displayAlertDialog(getActivity(), "No search results found", "Sorry!!");
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                    } catch (Exception e) {
+
+
+                    }
+                }
+            }
+
+            private void initiateFragmentTransaction(String details, VhRcSurrenderResponse registrationNumber) {
+
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("data",  registrationNumber);
+                HptParentFragment hptParentFragment = new HptParentFragment();
+                hptParentFragment.setArguments(bundle);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setPrimaryNavigationFragment(hptParentFragment);
+                transaction.replace(R.id.secondary_activity_fragment_container, hptParentFragment);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+
+            @Override
+            public void onFailure(Call<VhRcSurrenderResponse> call, Throwable t) {
+                prefConfig.displayToast("Technical Issues Kindly Call Administrator....");
+            }
+        });
+        
+        
+        
+        // ***********  VhToResponse  ***********//
+
+        
+        
+          Call<VhToResponse> call = SecondaryActivity.vehicleHistoryApiInterface.getVhToVehicleHistoryDetails(registrationNumber.trim().toUpperCase() );
+        call.enqueue(new Callback<VhToResponse>() {
+            @Override
+            public void onResponse(Call<VhToResponse> call, Response<VhToResponse> response) {
+
+
+                if(response.isSuccessful()) {
+                    try {
+                        if (response.body().getQueryResponse().getError() == false) {
+
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+
+
+                            prefConfig.displayToast(response.body().getQueryResponse().getMessage());
+
+
+                            initiateFragmentTransaction("details", response.body());
+
+
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                        else {
+
+                            displayAlertDialog(getActivity(), "No search results found", "Sorry!!");
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                    } catch (Exception e) {
+
+                    }
+                }
+            }
+
+            private void initiateFragmentTransaction(String details, VhToResponse registrationNumber) {
+
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("data",  registrationNumber);
+                HptParentFragment hptParentFragment = new HptParentFragment();
+                hptParentFragment.setArguments(bundle);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setPrimaryNavigationFragment(hptParentFragment);
+                transaction.replace(R.id.secondary_activity_fragment_container, hptParentFragment);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+
+            @Override
+            public void onFailure(Call<VhToResponse> call, Throwable t) {
+                prefConfig.displayToast("Technical Issues Kindly Call Administrator....");
+            }
+        });
+        
+        
+        
+        // ***********  Renewal  ***********//
+
+        
+        
+          Call<VhRenewalResponse> call = SecondaryActivity.vehicleHistoryApiInterface.getRenewalVehicleHistoryDetails(registrationNumber.trim().toUpperCase() );
+        call.enqueue(new Callback<VhRenewalResponse>() {
+            @Override
+            public void onResponse(Call<VhRenewalResponse> call, Response<VhRenewalResponse> response) {
+
+
+                if(response.isSuccessful()) {
+                    try {
+                        if (response.body().getQueryResponse().getError() == false) {
+
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+
+
+                            prefConfig.displayToast(response.body().getQueryResponse().getMessage());
+
+
+                            initiateFragmentTransaction("details", response.body());
+
+
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                        else {
+
+                            displayAlertDialog(getActivity(), "No search results found", "Sorry!!");
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                    } catch (Exception e) {
+
+
+                    }
+                }
+            }
+
+            private void initiateFragmentTransaction(String details, VhRenewalResponse registrationNumber) {
+
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("data",  registrationNumber);
+                HptParentFragment hptParentFragment = new HptParentFragment();
+                hptParentFragment.setArguments(bundle);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setPrimaryNavigationFragment(hptParentFragment);
+                transaction.replace(R.id.secondary_activity_fragment_container, hptParentFragment);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+
+            @Override
+            public void onFailure(Call<VhRenewalResponse> call, Throwable t) {
+                prefConfig.displayToast("Technical Issues Kindly Call Administrator....");
+            }
+        });
+        
+        
+        
+        
+        
+        //************** vhAlt ************************//
+        
+        Call<VhAltResponse> call = SecondaryActivity.vehicleHistoryApiInterface.getVehicleAlterationtHistoryDetails(registrationNumber.trim().toUpperCase() );
+        call.enqueue(new Callback<VhAltResponse>() {
+            @Override
+            public void onResponse(Call<VhAltResponse> call, Response<VhAltResponse> response) {
+
+
+                if(response.isSuccessful()) {
+                    try {
+                        if (response.body().getQueryResponse().getError() == false) {
+
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+
+
+                            prefConfig.displayToast(response.body().getQueryResponse().getMessage());
+
+
+                            initiateFragmentTransaction("details", response.body());
+
+
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                        else {
+
+                            displayAlertDialog(getActivity(), "No search results found", "Sorry!!");
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                    } catch (Exception e) {
+
+
+                    }
+                }
+            }
+
+            private void initiateFragmentTransaction(String details, VhAltResponse registrationNumber) {
+
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("data",  registrationNumber);
+                HptParentFragment hptParentFragment = new HptParentFragment();
+                hptParentFragment.setArguments(bundle);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setPrimaryNavigationFragment(hptParentFragment);
+                transaction.replace(R.id.secondary_activity_fragment_container, hptParentFragment);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+
+            @Override
+            public void onFailure(Call<VhAltResponse> call, Throwable t) {
+                prefConfig.displayToast("Technical Issues Kindly Call Administrator....");
+            }
+        });
+        
+        
+        
+        //************* Hpt History **************//
+        
+        
+        
+        
+                Call<VhHptResponse> call = SecondaryActivity.vehicleHistoryApiInterface.getVehicleHypothecationHistoryDetails(registrationNumber.trim().toUpperCase() );
+        call.enqueue(new Callback<VhHptResponse>() {
+            @Override
+            public void onResponse(Call<VhHptResponse> call, Response<VhHptResponse> response) {
+
+
+                if(response.isSuccessful()) {
+                    try {
+                        if (response.body().getQueryResponse().getError() == false) {
+
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+
+
+                            prefConfig.displayToast(response.body().getQueryResponse().getMessage());
+
+
+                            initiateFragmentTransaction("details", response.body());
+
+
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                        else {
+
+                            displayAlertDialog(getActivity(), "No search results found", "Sorry!!");
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                    } catch (Exception e) {
+
+
+                    }
+                }
+            }
+
+            private void initiateFragmentTransaction(String details, VhHptResponse registrationNumber) {
+
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("data",  registrationNumber);
+                HptParentFragment hptParentFragment = new HptParentFragment();
+                hptParentFragment.setArguments(bundle);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setPrimaryNavigationFragment(hptParentFragment);
+                transaction.replace(R.id.secondary_activity_fragment_container, hptParentFragment);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+
+            @Override
+            public void onFailure(Call<VhHptResponse> call, Throwable t) {
+                prefConfig.displayToast("Technical Issues Kindly Call Administrator....");
+            }
+        });
+        
+        
+        //**************** Insurance ***********//
+        
+        
+        Call<VhInsuranceResponse> call = SecondaryActivity.vehicleHistoryApiInterface.getVehicleInsuranceHistoryDetails(registrationNumber.trim().toUpperCase() );
+        call.enqueue(new Callback<VhInsuranceResponse>() {
+            @Override
+            public void onResponse(Call<VhInsuranceResponse> call, Response<VhInsuranceResponse> response) {
+
+
+                if(response.isSuccessful()) {
+                    try {
+                        if (response.body().getQueryResponse().getError() == false) {
+
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+
+
+                            prefConfig.displayToast(response.body().getQueryResponse().getMessage());
+
+
+                            initiateFragmentTransaction("details", response.body());
+
+
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                        else {
+
+                            displayAlertDialog(getActivity(), "No search results found", "Sorry!!");
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                    } catch (Exception e) {
+
+
+                    }
+                }
+            }
+
+            private void initiateFragmentTransaction(String details, VhInsuranceResponse registrationNumber) {
+
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("data",  registrationNumber);
+                HptParentFragment hptParentFragment = new HptParentFragment();
+                hptParentFragment.setArguments(bundle);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setPrimaryNavigationFragment(hptParentFragment);
+                transaction.replace(R.id.secondary_activity_fragment_container, hptParentFragment);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+
+            @Override
+            public void onFailure(Call<VhInsuranceResponse> call, Throwable t) {
+                prefConfig.displayToast("Technical Issues Kindly Call Administrator....");
+            }
+        });
+        
+        
+                //**************** Dup ***********//
+                
+                
+                
+                 Call<VhDupResponse> call = SecondaryActivity.vehicleHistoryApiInterface.getVehicleDuplicateRegistrationHistoryDetails(registrationNumber.trim().toUpperCase() );
+        call.enqueue(new Callback<VhDupResponse>() {
+            @Override
+            public void onResponse(Call<VhDupResponse> call, Response<VhDupResponse> response) {
+
+
+                if(response.isSuccessful()) {
+                    try {
+                        if (response.body().getQueryResponse().getError() == false) {
+
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+
+
+                            prefConfig.displayToast(response.body().getQueryResponse().getMessage());
+
+
+                            initiateFragmentTransaction("details", response.body());
+
+
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                        else {
+
+                            displayAlertDialog(getActivity(), "No search results found", "Sorry!!");
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                    } catch (Exception e) {
+
+
+                    }
+                }
+            }
+
+            private void initiateFragmentTransaction(String details, VhDupResponse registrationNumber) {
+
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("data",  registrationNumber);
+                HptParentFragment hptParentFragment = new HptParentFragment();
+                hptParentFragment.setArguments(bundle);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setPrimaryNavigationFragment(hptParentFragment);
+                transaction.replace(R.id.secondary_activity_fragment_container, hptParentFragment);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+                
+
+
+//************************ Paid Fees  ************************//
+
+
+
+
+        Call<PaidFeesResponse> call = SecondaryActivity.vehicleHistoryApiInterface.getVehicleFeesHistoryDetails(registrationNumber.trim().toUpperCase() );
+        call.enqueue(new Callback<PaidFeesResponse>() {
+            @Override
+            public void onResponse(Call<PaidFeesResponse> call, Response<PaidFeesResponse> response) {
+
+
+                if(response.isSuccessful()) {
+                    try {
+                        if (response.body().getQueryResponse().getError() == false) {
+
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+
+
+                            prefConfig.displayToast(response.body().getQueryResponse().getMessage());
+
+
+                            initiateFragmentTransaction("details", response.body());
+
+
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                        else {
+
+                            displayAlertDialog(getActivity(), "No search results found", "Sorry!!");
+                            searchProgress.setVisibility(View.GONE);
+                        }
+                    } catch (Exception e) {
+
+
+                    }
+                }
+            }
+
+            private void initiateFragmentTransaction(String details, PaidFeesResponse registrationNumber) {
+
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("data",  registrationNumber);
+                HptParentFragment hptParentFragment = new HptParentFragment();
+                hptParentFragment.setArguments(bundle);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setPrimaryNavigationFragment(hptParentFragment);
+                transaction.replace(R.id.secondary_activity_fragment_container, hptParentFragment);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+
+            @Override
+            public void onFailure(Call<PaidFeesResponse> call, Throwable t) {
+                prefConfig.displayToast("Technical Issues Kindly Call Administrator....");
+            }
+        });
+
+
+
+
+// ******************
+
+
+                
+                
+                
+                
